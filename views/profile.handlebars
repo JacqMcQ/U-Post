@@ -1,0 +1,22 @@
+{{> main title="Profile"}}
+
+<h1>{{user.name}}'s Profile</h1>
+<h2>Your Blogs</h2>
+<ul>
+  {{#each user.blogs}}
+    <li>
+      <a href="/blog/{{id}}">{{name}}</a>
+      <form action="/api/blogs/{{id}}" method="POST" style="display:inline;">
+        <button type="submit">Delete</button>
+      </form>
+    </li>
+  {{/each}}
+</ul>
+<h2>Create New Blog</h2>
+<form action="/api/blogs" method="POST">
+  <label for="name">Blog Name:</label>
+  <input type="text" name="name" required>
+  <label for="description">Description:</label>
+  <textarea name="description" required></textarea>
+  <button type="submit">Create Blog</button>
+</form>
