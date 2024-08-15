@@ -1,4 +1,18 @@
-{{> main title=blog.name}}
+<h1>{{blog.title}}</h1>
+<p>{{blog.content}}</p>
+<p>Posted by {{blog.username}} on {{blog.createdAt}}</p>
 
-<h1>{{blog.name}}</h1>
-<p>{{blog.description}}</p>
+<h2>Comments</h2>
+<ul>
+  {{#each comments}}
+    <li>{{username}}: {{comment}} - {{createdAt}}</li>
+  {{/each}}
+</ul>
+
+{{#if user}}
+  <form action="/api/comments" method="POST">
+    <input type="hidden" name="blogId" value="{{blog.id}}">
+    <textarea name="comment" required></textarea>
+    <button type="submit">Submit Comment</button>
+  </form>
+{{/if}}

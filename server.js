@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 const hbs = exphbs.create({
   layoutsDir: path.join(__dirname, "views/layouts"),
   partialsDir: path.join(__dirname, "views/partials"),
-  defaultLayout: "layout-main", // Ensure this matches the name of your default layout file
+  defaultLayout: "main", 
 });
 
 app.engine("handlebars", hbs.engine);

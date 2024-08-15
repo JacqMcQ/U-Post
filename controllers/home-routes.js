@@ -8,11 +8,10 @@ router.get("/", async (req, res) => {
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
     res.render("home", { blogs });
   } catch (err) {
-    res.status(500).json(err);
+    console.error(err); 
+    res.status(500).json({ error: "An error occurred while fetching blogs." });
   }
-});
-
-router.get("/login", (req, res) => {
+});router.get("/login", (req, res) => {
   if (req.session.user_id) {
     res.redirect("/profile");
     return;
