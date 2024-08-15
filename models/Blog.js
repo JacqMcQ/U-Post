@@ -5,19 +5,24 @@ class Blog extends Model {}
 
 Blog.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true, 
+    },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false, 
     },
     content: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: false, 
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "users", 
-        key: "id",
+        model: "Users", 
+        key: "id", 
       },
       onDelete: "CASCADE",
       onUpdate: "CASCADE",
@@ -25,8 +30,9 @@ Blog.init(
   },
   {
     sequelize,
-    modelName: "Blog",
+    modelName: "Blog", 
     tableName: "blogs", 
+    timestamps: true, 
   }
 );
 

@@ -5,8 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "migrate": "sequelize-cli db:migrate --config config/config.js",
+    "seed": "sequelize-cli db:seed:all --config config/config.js"   
   },
+  
   "keywords": [],
   "author": "",
   "license": "MIT",

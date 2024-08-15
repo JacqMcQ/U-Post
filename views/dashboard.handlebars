@@ -1,14 +1,14 @@
+
 <h1>Your Dashboard</h1>
 <h2>Your Blog Posts</h2>
 <ul>
   {{#each blogs}}
     <li>
       <a href="/blog/{{id}}">{{title}}</a>
-      <a href="/posts/edit/{{id}}">Edit</a>
-      <form action="/api/posts/{{id}}" method="POST" style="display:inline;">
+      <form action="/api/blogs/{{id}}" method="POST" style="display:inline;">
         <button type="submit">Delete</button>
       </form>
     </li>
   {{/each}}
 </ul>
-<a href="/posts/new">Create New Blog Post</a>
+<a href="/create-post">Create New Blog Post</a>
