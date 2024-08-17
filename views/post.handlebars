@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{blog.title}}</title>
+</head>
+<body>
+  <h1>{{blog.title}}</h1>
+  <p>{{blog.content}}</p>
+  <small>By {{blog.User.username}} on {{blog.createdAt}}</small>
+  <div id="comments">
+    {{#each blog.Comments}}
+      <div>
+        <p>{{this.content}}</p>
+        <small>By {{this.User.username}} on {{this.createdAt}}</small>
+      </div>
+    {{/each}}
+  </div>
+  <form id="commentForm">
+    <textarea name="content" placeholder="Add a comment"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+  <script src="/js/post.js"></script>
+</body>
+</html>

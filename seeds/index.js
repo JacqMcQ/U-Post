@@ -1,33 +1,33 @@
 const sequelize = require("../config/connection");
-const { User, Blog } = require("../models");
-
-const userData = require("./user-seeds.json");
-const blogData = require("./blog-seeds.json");
+const seedUsers = require("./userData");
+const seedBlogs = require("./blogData");
+const seedComments = require("./commentData");
 
 const seedDatabase = async () => {
   try {
+    // Sync and reset the database
+    console.log("Synchronizing the database...");
     await sequelize.sync({ force: true });
 
-    console.log("Database synced");
+    // Seed users first
+    console.log("Seeding users...");
+    await seedUsers();
 
-    // Seed users
-    await User.bulkCreate(userData, {
-      individualHooks: true, // If you want to hash passwords
-      returning: true,
-    });
+    // Seed blogs after users
+    console.log("Seeding blogs...");
+    await seedBlogs();
 
-    console.log("Users seeded");
+    // Seed comments after blogs
+    console.log("Seeding comments...");
+    await seedComments();
 
-    // Seed blogs
-    await Blog.bulkCreate(blogData);
-
-    console.log("Blogs seeded");
-
-    process.exit(0);
-  } catch (error) {
-    console.error("Error seeding database:", error);
-    process.exit(1);
+    console.log("Database seeded successfully");
+  } catch (err) {
+    console.error("Error seeding database:", err);
+  } finally {
+    process.exit(0); // Exit the process after seeding
   }
 };
 
+// Execute the seeding process
 seedDatabase();

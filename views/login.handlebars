@@ -1,9 +1,8 @@
-{{!-- login.handlebars --}}
-
+<!-- views/login.handlebars -->
 <div class="row justify-space-between-md">
   <div class="login-card">
     <h2 class="page-title">Login</h2>
-    <form class="form login-form" action="/login" method="POST">
+    <form id="loginForm" class="form" action="/api/users/login" method="POST">
       <div class="form-group">
         <label for="email-login">Email:</label>
         <input class="form-input" type="email" id="email-login" name="email" required />
@@ -20,7 +19,7 @@
 
   <div class="login-card">
     <h2 class="page-title">Signup</h2>
-    <form class="form signup-form" action="/signup" method="POST">
+    <form id="signupForm" class="form" action="/api/users/signup" method="POST">
       <div class="form-group">
         <label for="username-signup">Username:</label>
         <input class="form-input" type="text" id="username-signup" name="username" required />
