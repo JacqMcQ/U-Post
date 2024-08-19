@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Blog } = require("../../models");
-const authMiddleware = require("../utils/auth");
+const authMiddleware = require("../../utils/auth");
 
 router.use(authMiddleware);
 

@@ -45,9 +45,9 @@ User.init(
     },
     sequelize,
     timestamps: false,
-    freezeTableName: true, // Ensure table name matches
+    freezeTableName: true, 
     underscored: true,
-    modelName: "user", // This defines the table name
+    modelName: "user",
   }
 );
 

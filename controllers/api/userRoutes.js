@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const { User } = require("../../models");
-
 router.post("/signup", async (req, res) => {
   try {
     const dbUserData = await User.create({
@@ -11,11 +10,12 @@ router.post("/signup", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_id = dbUserData.id; 
       res.redirect("/"); 
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    res.status(500).json({ message: "An error occurred during signup." });
   }
 });
 
@@ -45,21 +45,27 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_id = dbUserData.id; 
       res.redirect("/"); 
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    res.status(500).json({ message: "An error occurred during login." });
   }
 });
 
 router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
+    req.session.destroy((err) => {
+      if (err) {
+        console.log(err);
+        res.status(500).json({ message: "An error occurred during logout." });
+      } else {
+        res.redirect("/"); 
+      }
     });
   } else {
-    res.status(404).end();
+    res.status(404).json({ message: "No active session found." });
   }
 });
 
