@@ -2,20 +2,21 @@ const { Comment } = require("../models");
 
 const commentData = [
   {
-    text: "This is a great article on web development!",
-    user_id: 2,
-    blog_id: 1,
+    content: "This is a great article on web development!",
+    blog_id: 1, // Make sure this blog ID exists
+    user_id: 2, // Make sure this user ID exists
   },
   {
-    text: "I found the explanation of async/await very helpful.",
-    user_id: 1,
-    blog_id: 2,
+    content: "Thanks for the explanation on async/await!",
+    blog_id: 2, // Make sure this blog ID exists
+    user_id: 1, // Make sure this user ID exists
   },
   {
-    text: "Looking forward to more articles like this.",
-    user_id: 1,
-    blog_id: 1,
+    content: "Looking forward to more articles like this.",
+    blog_id: 1, // Make sure this blog ID exists
+    user_id: 1, // Make sure this user ID exists
   },
+ 
 ];
 
 const seedComments = () => Comment.bulkCreate(commentData);
