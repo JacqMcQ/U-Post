@@ -1,28 +1,34 @@
 <!-- post.handlebars -->
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{{blog.title}}</title>
-</head>
-<body>
-  <h1>{{blog.title}}</h1>
-  <p>{{blog.content}}</p>
-  <small>By {{blog.User.username}} on {{formatDate blog.createdAt}}</small>
+<section class="container">
+  <h1 class="blog-title">{{blog.title}}</h1>
+  <p class="blog-meta">
+    <span>By {{blog.user.username}}</span> |
+    <span>Posted on {{formatDate blog.createdAt}}</span>
+  </p>
+  <article class="blog-content">
+    {{{blog.content}}}
+  </article>
 
-  <div id="comments">
-    {{#each blog.Comments}}
-      <div>
-        <p>{{this.content}}</p>
-        <small>By {{this.User.username}} on {{formatDate this.createdAt}}</small>
+  {{#if loggedIn}}
+    <section class="comment-section">
+      <h3>Leave a Comment</h3>
+      <form id="commentForm">
+        <input type="hidden" id="blog-id" value="{{blog.id}}">
+        <textarea name="content" rows="4" placeholder="Write your comment here..." required></textarea>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </section>
+  {{/if}}
+
+  <section class="comments-list">
+    <h3>Comments</h3>
+    {{#each blog.comments as |comment|}}
+      <div class="comment">
+        <p><strong>{{comment.user.username}}</strong> <span>on {{formatDate comment.createdAt}}</span></p>
+        <p>{{comment.text}}</p>
       </div>
     {{/each}}
-  </div>
+  </section>
+</section>
 
-  <form id="commentForm">
-    <textarea name="content" placeholder="Add a comment"></textarea>
-    <button type="submit">Submit</button>
-  </form>
-
-  <script src="/js/post.js"></script>
-</body>
-</html>
+<script src="/js/post.js"></script>

@@ -1,4 +1,3 @@
-// public/js/post.js
 document.addEventListener("DOMContentLoaded", () => {
   const commentForm = document.querySelector("#commentForm");
 
@@ -9,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const content = document
         .querySelector('textarea[name="content"]')
         .value.trim();
-      const blogId = window.location.pathname.split("/").pop();
+      const blogId = document.querySelector("#blog-id").value;
 
       if (content) {
         try {
@@ -20,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
           });
 
           if (response.ok) {
-            document.location.reload();
+            document.location.reload(); 
           } else {
             alert("Failed to add comment");
           }
