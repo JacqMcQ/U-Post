@@ -40,4 +40,11 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+router.get('/create', (req, res) => {
+  res.render('create-blog'); 
+});
+router.get("/create", (req, res) => {
+  res.render("create-blog"); 
+});
+
 module.exports = router;
