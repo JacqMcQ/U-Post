@@ -21,7 +21,7 @@ Blog.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "user", 
+        model: "user", // Reference should match the model name
         key: "id",
       },
       onDelete: "CASCADE",

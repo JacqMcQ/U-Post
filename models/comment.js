@@ -10,35 +10,25 @@ Comment.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    content: {
+    text: {
       type: DataTypes.TEXT,
       allowNull: false,
-    },
-    blog_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "blogs", // Ensure this matches the table name in the Blog model
-        key: "id",
-      },
-      onDelete: "CASCADE",
-      onUpdate: "CASCADE",
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "user", // Ensure this matches the table name in the User model
+        model: "user",
         key: "id",
       },
       onDelete: "CASCADE",
-      onUpdate: "CASCADE",
     },
-    createdAt: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
+    blog_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "blogs",
+        key: "id",
+      },
+      onDelete: "CASCADE",
     },
   },
   {

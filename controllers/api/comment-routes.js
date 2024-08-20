@@ -1,20 +1,29 @@
 const router = require("express").Router();
 const { Comment } = require("../../models");
+const authMiddleware = require("../../utils/auth");
 
-router.post("/", async (req, res) => {
+router.post("/", authMiddleware, async (req, res) => {
   try {
-    if (req.session.loggedIn) {
-      const newComment = await Comment.create({
-        content: req.body.content,
-        blog_id: req.body.blog_id,
-        user_id: req.session.user_id,
-      });
-      res.status(200).json(newComment);
-    } else {
-      res.status(401).json({ message: "You must be logged in to comment." });
-    }
+    const newComment = await Comment.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+    res.status(200).json(newComment);
   } catch (err) {
-    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/:blog_id", async (req, res) => {
+  try {
+    const comments = await Comment.findAll({
+      where: {
+        blog_id: req.params.blog_id,
+      },
+      include: [{ model: User, attributes: ["username"] }],
+    });
+    res.status(200).json(comments);
+  } catch (err) {
     res.status(500).json(err);
   }
 });
