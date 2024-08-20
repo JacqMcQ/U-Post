@@ -25,11 +25,15 @@ router.get("/post/:id", async (req, res) => {
       ],
     });
 
+    if (!dbBlogData) {
+      return res.status(404).render("404"); 
+    }
+
     const blog = dbBlogData.get({ plain: true });
     res.render("post", { blog, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.error(err);
-    res.status(500).json(err);
+    res.status(500).json({ message: "Server Error", error: err.message });
   }
 });
 router.get("/login", (req, res) => {
@@ -39,7 +43,6 @@ router.get("/login", (req, res) => {
   }
   res.render("login");
 });
-// In controllers/home-routes.js
 
 router.get("/signup", (req, res) => {
   if (req.session.loggedIn) {
@@ -47,6 +50,10 @@ router.get("/signup", (req, res) => {
     return;
   }
   res.render("signup");
+  
+  router.use((req, res) => {
+    res.status(404).render("404"); // Renders 404.handlebars
+  });
 });
 
 module.exports = router;

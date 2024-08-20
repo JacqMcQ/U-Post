@@ -3,11 +3,13 @@
   {{#each blogs}}
     <li>
       <a href="/post/{{this.id}}">{{this.title}}</a>
-      <form action="/api/blogs/{{this.id}}" method="POST" class="inline">
+      <form data-id="{{this.id}}" class="delete-blog-form inline">
         <button type="submit">Delete</button>
       </form>
       <a href="/edit/{{this.id}}">Edit</a>
     </li>
   {{/each}}
 </ul>
-<a href="/create">Create New Blog Post</a>
+<a href="/api/blogs/create">Create New Blog Post</a>
+
+<script src="/js/dashboard.js"></script>

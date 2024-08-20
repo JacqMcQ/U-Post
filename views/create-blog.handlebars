@@ -1,0 +1,15 @@
+<!-- views/create-blog.handlebars -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create New Blog Post</title>
+</head>
+<body>
+  <h1>Create a New Blog Post</h1>
+  <form action="/api/blogs" method="POST">
+    <input type="text" name="title" placeholder="Title" required>
+    <textarea name="content" placeholder="Content" required></textarea>
+    <button type="submit">Create Post</button>
+  </form>
+</body>
+</html>

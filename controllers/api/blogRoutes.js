@@ -3,7 +3,13 @@ const { Blog } = require("../../models");
 const authMiddleware = require("../../utils/auth");
 
 router.use(authMiddleware);
-
+router.get("/create", (req, res) => {
+  if (req.session.loggedIn) {
+    res.render("create-blog"); 
+  } else {
+    res.redirect("/login"); 
+  }
+});
 router.post("/", async (req, res) => {
   try {
     const newBlog = await Blog.create({
