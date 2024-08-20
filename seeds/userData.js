@@ -11,7 +11,6 @@ const userData = [
     email: "jane@example.com",
     password: "password123",
   },
-  // Add more users as needed
 ];
 
 const seedUsers = async () => {
