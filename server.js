@@ -32,8 +32,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
+const blogRoutes = require("./controllers/api/blogRoutes");
+app.use("/api/blogs", blogRoutes);
+
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log("Now listening at http://localhost/3001"));
+  app.listen(PORT, () =>
+    console.log(`Now listening at http://localhost:${PORT}`)
+  );
 });
