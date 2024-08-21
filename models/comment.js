@@ -1,3 +1,4 @@
+// models/Comment.js
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
@@ -25,7 +26,7 @@ Comment.init(
     blog_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "blogs",
+        model: "blogs", // Ensure this matches your table name
         key: "id",
       },
       onDelete: "CASCADE",
