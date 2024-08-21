@@ -1,15 +1,15 @@
-<!-- views/create-blog.handlebars -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Create New Blog Post</title>
+  <title>Create Blog</title>
 </head>
 <body>
   <h1>Create a New Blog Post</h1>
-  <form action="/api/blogs" method="POST">
-    <input type="text" name="title" placeholder="Title" required>
-    <textarea name="content" placeholder="Content" required></textarea>
-    <button type="submit">Create Post</button>
+  <form id="createBlogForm">
+    <input type="text" id="title" name="title" placeholder="Blog Title" required />
+    <textarea id="content" name="content" placeholder="Blog Content" required></textarea>
+    <button type="submit">Create Blog</button>
   </form>
+  <script src="/js/create-blog.js"></script>
 </body>
 </html>

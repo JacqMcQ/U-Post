@@ -3,22 +3,26 @@ const { Blog } = require("../../models");
 const authMiddleware = require("../../utils/auth");
 
 router.use(authMiddleware);
+
 router.get("/create", (req, res) => {
   if (req.session.loggedIn) {
-    res.render("create-blog"); 
+    res.render("create-blog");
   } else {
-    res.redirect("/login"); 
+    res.redirect("/login");
   }
 });
+
 router.post("/", async (req, res) => {
   try {
     const newBlog = await Blog.create({
-      ...req.body,
+      title: req.body.title,
+      content: req.body.content,
       user_id: req.session.user_id,
     });
     res.status(200).json(newBlog);
   } catch (err) {
-    res.status(400).json(err);
+    console.error(err);
+    res.status(500).json({ message: "Server Error", error: err.message });
   }
 });
 

@@ -12,7 +12,7 @@ router.post("/", authMiddleware, async (req, res) => {
     }
 
     const newComment = await Comment.create({
-      text: content,
+      content: content,
       blog_id: blog_id,
       user_id: req.session.user_id,
     });

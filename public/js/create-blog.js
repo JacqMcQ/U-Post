@@ -1,22 +1,35 @@
-document
-  .querySelector("#createBlogForm")
-  .addEventListener("submit", async (event) => {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("#createBlogForm");
+  const titleInput = document.querySelector("#title");
+  const contentInput = document.querySelector("#content");
 
-    const title = document.querySelector("#title").value.trim();
-    const content = document.querySelector("#content").value.trim();
+  if (form && titleInput && contentInput) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-    if (title && content) {
-      const response = await fetch("/api/blogs", {
-        method: "POST",
-        body: JSON.stringify({ title, content }),
-        headers: { "Content-Type": "application/json" },
-      });
+      const title = titleInput.value.trim();
+      const content = contentInput.value.trim();
 
-      if (response.ok) {
-        document.location.replace("/dashboard");
-      } else {
-        alert("Failed to create blog post");
+      if (title && content) {
+        try {
+          const response = await fetch("/api/blogs", {
+            method: "POST",
+            body: JSON.stringify({ title, content }),
+            headers: { "Content-Type": "application/json" },
+          });
+
+          if (response.ok) {
+            document.location.replace("/dashboard");
+          } else {
+            alert("Failed to create blog post");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
       }
-    }
-  });
+    });
+  } else {
+    console.error("Form or input elements not found");
+  }
+});
+
