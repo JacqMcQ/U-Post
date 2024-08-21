@@ -1,12 +1,30 @@
 # U-Post
 
+## Table of Contents
+
+- [Description](#description)
+- [Landing Page](#landing-page)
+- [User Story](#user-story)
+- [Acceptance Criteria](#acceptance-criteria)
+  - [Homepage](#homepage)
+  - [Sign-Up and Login](#sign-up-and-login)
+  - [Blog Post Interaction](#blog-post-interaction)
+  - [Dashboard](#dashboard)
+  - [Logout and Idle State](#logout-and-idle-state)
+- [Technologies Used](#technologies-used)
+- [Deployed](#deployed)
+- [Credits/ Citations/ Contributions](#credits-citations-contributions)
+- [Future Deployments](#future-deployments)
+- [License](#license)
+
+
 ## Description
 
 U-Post is a CMS-style blog site where developers can publish their blog posts and comment on other developers' posts. Built from scratch using the MVC paradigm, this application leverages Handlebars.js for templating, Sequelize as the ORM, and `express-session` for authentication.
 
 ## Landing Page:
 
-![alt text](public/images/U-post-landing.png)
+![alt text](<public/images/Screenshot 2024-08-20 230248.png>)
 
 ## User Story
 
@@ -90,9 +108,9 @@ Handlebars.js: Introduction. (n.d.). Handlebars.js.  2024, from https://handleba
 UTA-VIRT-FSF-PT-05-2024-U-LOLC. (2024). GitHub. Retrieved, 2024, from https://git.bootcampcontent.com/University-of-Texas-at-Austin/UTA-VIRT-FSF-PT-05-2024-U-LOLC/-/tree/main/14-MVC/
 
 ## Future Deployments
--working on providing more styling
--re-configuring the time out for login sessions
--splitting the login and sign up into separate screens that users can toggle between. Add a feature for editing posts. 
+*working on providing more styling
+*re-configuring the time out for login sessions
+*splitting the login and sign up into separate screens that users can toggle between. Add a feature for editing posts. 
 
 ## License: 
 MIT License
