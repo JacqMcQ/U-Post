@@ -1,4 +1,3 @@
-// models/Comment.js
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
@@ -18,7 +17,7 @@ Comment.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "user",
+        model: "users", // Ensure this matches the name of the User model/table
         key: "id",
       },
       onDelete: "CASCADE",
@@ -26,27 +25,17 @@ Comment.init(
     blog_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "blogs", // Ensure this matches your table name
+        model: "blogs", // Check that this matches your Blog model's table name
         key: "id",
       },
       onDelete: "CASCADE",
-    },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
     },
   },
   {
     sequelize,
     modelName: "Comment",
     tableName: "comments",
-    timestamps: true,
+    timestamps: true, // Automatically adds createdAt and updatedAt fields
   }
 );
 
