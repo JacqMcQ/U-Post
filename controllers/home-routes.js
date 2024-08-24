@@ -1,4 +1,3 @@
-
 const router = require("express").Router();
 const { Blog, User, Comment } = require("../models");
 
@@ -26,7 +25,7 @@ router.get("/post/:id", async (req, res) => {
     });
 
     if (!dbBlogData) {
-      return res.status(404).render("404"); 
+      return res.status(404).render("404");
     }
 
     const blog = dbBlogData.get({ plain: true });
@@ -50,7 +49,7 @@ router.get("/signup", (req, res) => {
     return;
   }
   res.render("signup");
-  
+
   router.use((req, res) => {
     res.status(404).render("404"); // Renders 404.handlebars
   });

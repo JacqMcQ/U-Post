@@ -10,8 +10,8 @@ router.post("/signup", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      req.session.user_id = dbUserData.id; 
-      res.redirect("/"); 
+      req.session.user_id = dbUserData.id;
+      res.redirect("/");
     });
   } catch (err) {
     console.log(err);
@@ -45,8 +45,8 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      req.session.user_id = dbUserData.id; 
-      res.redirect("/"); 
+      req.session.user_id = dbUserData.id;
+      res.redirect("/");
     });
   } catch (err) {
     console.log(err);
@@ -61,7 +61,7 @@ router.post("/logout", (req, res) => {
         console.log(err);
         res.status(500).json({ message: "An error occurred during logout." });
       } else {
-        res.redirect("/"); 
+        res.redirect("/");
       }
     });
   } else {
