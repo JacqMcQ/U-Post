@@ -1,65 +1,77 @@
 /* Navbar Styling */
+/* Navbar Styles */
 .navbar {
-  background-color: #ffffff; /* White background for a clean look */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #f0f0f0;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.navbar .logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #2d72d9; /* Bright blue for branding */
+.logo {
+  font-family: 'Georgia', serif; /* Fancy font */
+  font-size: 24px; /* Adjust size as needed */
+  font-weight: bold;
+  color: #f9f9f9; /* Light color for contrast */
   text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
 }
 
-.navbar .nav-links {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.logo::before {
+  content: ''; /* Decorative element */
+  position: absolute;
+  bottom: -5px; /* Adjust as needed */
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #ff8c00, #ff6347); /* Gradient effect */
+  border-radius: 5px;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.nav-links {
+  list-style: none;
   display: flex;
   gap: 20px;
 }
 
-.navbar .nav-links li {
-  display: inline;
+.nav-links li {
+  margin: 0;
 }
 
-.navbar .nav-links li a {
-  font-size: 1rem;
-  color: #333;
+.nav-links a {
+  color: #f9f9f9;
   text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 20px;
-  transition: background-color 0.3s, color 0.3s;
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
 
-.navbar .nav-links li a:hover {
-  background-color: #ffaf4d; /* Warm color for hover effect */
-  color: #fff;
+.nav-links a.active, 
+.nav-links a:hover {
+  color: #ff8c00; /* Highlight color */
 }
 
-.navbar .nav-links li a.active {
-  background-color: #2d72d9;
-  color: #fff;
-}
-
-.navbar .btn {
-  padding: 8px 20px;
-  background-color: #2d72d9;
-  color: #fff;
-  font-size: 1rem;
+.btn {
+  background-color: #ff6347; /* Button background */
+  color: #fff; /* Text color */
   border: none;
-  border-radius: 20px;
+  border-radius: 4px;
+  padding: 10px 15px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.navbar .btn:hover {
-  background-color: #1b5bbf;
+.btn:hover {
+  background-color: #ff4500; /* Darker shade for hover effect */
 }
 
 
@@ -196,4 +208,223 @@ footer {
   background-color: #f9f9f9;
   color: #999;
   margin-top: 40px;
+}
+/* General Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Page Title */
+.page-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form Styles */
+.form-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.input-field,
+.textarea-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.textarea-field {
+  height: 150px;
+  resize: vertical;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background-color: #218838;
+}
+
+/* Post Styles */
+.post-title {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.post-content {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.post-info {
+  display: block;
+  margin-top: 10px;
+  color: #888;
+  font-size: 12px;
+}
+
+/* Comments Section */
+.comments-section {
+  margin-top: 40px;
+}
+
+.comment-box {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.comment-content {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+}
+
+.comment-info {
+  display: block;
+  margin-top: 10px;
+  color: #888;
+  font-size: 12px;
+}
+
+/* Comment Form Styles */
+.comment-form {
+  margin-top: 40px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.comment-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  resize: vertical;
+  height: 100px;
+}
+
+.comment-submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.comment-submit-button:hover {
+  background-color: #0056b3;
+}
+/* Dashboard Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.dashboard-title {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.blog-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.blog-item {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.blog-title {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 18px;
+}
+
+.blog-title:hover {
+  text-decoration: underline;
+}
+
+.delete-blog-form {
+  margin: 0;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.edit-link {
+  text-decoration: none;
+  color: #28a745;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.edit-link:hover {
+  text-decoration: underline;
+}
+
+.create-blog-link {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.create-blog-link:hover {
+  background-color: #0056b3;
 }

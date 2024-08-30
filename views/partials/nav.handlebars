@@ -1,11 +1,13 @@
 <nav class="navbar">
-  <a href="/" class="logo">MyWebsite</a>
+  <a href="/" class="logo">U-Post</a>
   <ul class="nav-links">
     <li><a href="/" class="active">Home</a></li>
-    <li><a href="/dashboard">Dashboard</a></li>
-    <li><a href="/login">Login</a></li>
-    <li><a href="/signup">Signup</a></li>
+    {{#if loggedIn}}
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><button id="logout" class="btn">Logout</button></li>
+    {{else}}
+      <li><a href="/login">Login</a></li>
+      <li><a href="/signup">Signup</a></li>
+    {{/if}}
   </ul>
-  <!-- Add conditional rendering for login/logout button -->
-  <button class="btn">Logout</button>
 </nav>
