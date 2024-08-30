@@ -1,5 +1,7 @@
 # U-Post
 
+## Deployed via Render and view the website via this link: https://u-post-duhp.onrender.com/login
+
 ## Table of Contents
 
 - [Description](#description)
@@ -93,8 +95,6 @@ As a developer who writes about tech, I want a CMS-style blog site so that I can
 - **Backend:** Node.js, Express.js.
 - **Database:** PostgreSQL, Sequelize ORM.
 - **Authentication:** express-session for user sessions.
-
-## Deployed via Render and view the website via this link: https://u-post-duhp.onrender.com/login
 
 ## Credits/ Citations/Contributions:
 Collaborated with UT austin Bootcamp instructor on resolving merge conficts. Also used exercises for boilerplate code from MVC week 14 course work. AI was used for trouble-shooting server errors, there was a conceptual phsase where oprtunity presented to be more mindful of tagging and id's when referenceing in the MVC framework. AI sources assisted with calling out these inconsistencies in my code. 
