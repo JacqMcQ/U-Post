@@ -1,6 +1,15 @@
 <!-- homepage.handlebars -->
 <section class="container">
   <h1>Blog List</h1>
+  
+   <!-- Redirect Button for Login/Signup -->
+  {{#unless loggedIn}}
+    <div class="login-signup-section">
+      <p>Please login or sign up to create a blog or comment!</p>
+      <a href="/login" class="btn btn-primary">Login/Signup</a>
+    </div>
+  {{/unless}}
+
   <section class="flex-row justify-center">
     {{#each blogs}}
       <div class="blog-post">
