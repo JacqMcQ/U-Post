@@ -14,3 +14,14 @@ document.querySelectorAll(".delete-blog-form").forEach((form) => {
     }
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutButton = document.querySelector(".btn");
+
+  if (logoutButton) {
+    logoutButton.addEventListener("click", () => {
+      // Example: Redirect to logout route
+      window.location.href = "/logout"; 
+
+    });
+  }
+});

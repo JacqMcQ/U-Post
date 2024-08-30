@@ -1,15 +1,24 @@
-<h2>Your Blog Posts</h2>
-<ul>
-  {{#each blogs}}
-    <li>
-      <a href="/post/{{this.id}}">{{this.title}}</a>
-      <form data-id="{{this.id}}" class="delete-blog-form inline">
-        <button type="submit">Delete</button>
-      </form>
-      <a href="/edit/{{this.id}}">Edit</a>
-    </li>
-  {{/each}}
-</ul>
-<a href="/api/blogs/create">Create New Blog Post</a>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Blog Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <h2 class="dashboard-title">Your Blog Posts</h2>
+  <ul class="blog-list">
+    {{#each blogs}}
+      <li class="blog-item">
+        <a href="/post/{{this.id}}" class="blog-title">{{this.title}}</a>
+        <form data-id="{{this.id}}" class="delete-blog-form">
+          <button type="submit" class="delete-button">Delete</button>
+        </form>
+        <a href="/edit/{{this.id}}" class="edit-link">Edit</a>
+      </li>
+    {{/each}}
+  </ul>
+  <a href="/api/blogs/create" class="create-blog-link">Create New Blog Post</a>
 
-<script src="/js/dashboard.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

@@ -2,13 +2,14 @@
 <html>
 <head>
   <title>Create Blog</title>
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-  <h1>Create a New Blog Post</h1>
-  <form id="createBlogForm">
-    <input type="text" id="title" name="title" placeholder="Blog Title" required />
-    <textarea id="content" name="content" placeholder="Blog Content" required></textarea>
-    <button type="submit">Create Blog</button>
+  <h1 class="page-title">Create a New Blog Post</h1>
+  <form id="createBlogForm" class="form-container">
+    <input type="text" id="title" name="title" class="input-field" placeholder="Blog Title" required />
+    <textarea id="content" name="content" class="textarea-field" placeholder="Blog Content" required></textarea>
+    <button type="submit" class="submit-button">Create Blog</button>
   </form>
   <script src="/js/create-blog.js"></script>
 </body>
